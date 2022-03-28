@@ -8,7 +8,7 @@
 <div id="editor"></div>
 <button onclick="seeHtml()">html보기</button>
 <button onclick="seeMd()">markdown보기</button>
-<form name = "testform" method="post" onsubmit="return submitFunc()" >
+<form name = "testform" action="/submit" method="post" onsubmit="return submitFunc()" >
 <input  type="hidden" name="editorHtml">
     <button>전송</button>
 </form>
@@ -32,15 +32,11 @@
     }
 
     submitFunc = function(){
-        console.log(editor.getHTML())
         let frm = document.testform
         if(typeof frm === "undefined") return false;
         console.log(editor.getHTML())
         frm.editorHtml.value = editor.getHTML();
-
-
     }
-
 
 </script>
 </body>

@@ -14,11 +14,11 @@ public class DBSubmitTestController {
     @Autowired
     private DBSubmitTestRepository repository;
 
-    @PostMapping
+    @PostMapping("/submit")
     public String sumbitDB(@RequestParam("editorHtml") String text){
         System.out.println("---------");
         System.out.println(text);
-        return "index";
+        return "redirect:/";
     }
 
 
