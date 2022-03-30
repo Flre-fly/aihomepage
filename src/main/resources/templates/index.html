@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <!-- Toast UI Editor -->
-    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"/>
 </head>
 <body>
 <h1>TEST ToastUI</h1>
@@ -9,8 +9,8 @@
 <button onclick="seeHtml()">html보기</button>
 <button onclick="seeMd()">markdown보기</button>
 <form name = "testform" action="/submit" method="post" onsubmit="return submitFunc()" >
-<input  type="hidden" name="editorHtml">
-    <button>전송</button>
+<input  type="hidden" name="text">
+    <button type="submit">전송</button>
 </form>
 
 <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
@@ -33,9 +33,11 @@
 
     submitFunc = function(){
         let frm = document.testform
+        alert(editor.getHTML());
+        console.log(editor.getHTML() + "콘솔로그")
+        frm.text.value = editor.getHTML();
         if(typeof frm === "undefined") return false;
-        console.log(editor.getHTML())
-        frm.editorHtml.value = editor.getHTML();
+
     }
 
 </script>

@@ -3,6 +3,14 @@ package demo.aihomepage.VO;
 public class myTextVO {
     private String text;
 
+    public myTextVO(){
+
+    }
+
+    public myTextVO(String text) {
+        this.text = text;
+    }
+
     public String getText() {
         return text;
     }

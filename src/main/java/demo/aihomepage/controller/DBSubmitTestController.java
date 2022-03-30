@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-@Controller
+@RestController
 @RequestMapping
 public class DBSubmitTestController {
 
@@ -15,10 +16,11 @@ public class DBSubmitTestController {
     private DBSubmitTestRepository repository;
 
     @PostMapping("/submit")
-    public String sumbitDB(@RequestParam("editorHtml") String text){
+    public myTextVO sumbitDB(myTextVO text){
         System.out.println("---------");
-        System.out.println(text);
-        return "redirect:/";
+        System.out.println(text.getText());
+        //return "redirect:/";
+        return text;
     }
 
 
