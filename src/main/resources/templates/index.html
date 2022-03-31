@@ -24,7 +24,21 @@
         previewStyle: 'vertical'
     });
 
-    seeHtml = function(){
+    editor.removeHook('addImageBlobHook');
+    editor.addHook('addImageBlobHook', async (blob, callback) => {
+        const formData = new FormData();
+        formData.append('file', blob);
+
+        fetch('url', {
+            method: 'POST',
+            headers: {'Content-Type': 'multipart/form-data'},
+            body: formData,
+        });
+        //fetch해서 url받아서 callback으로 url넘겨서 호출
+        callback('url');
+    });
+
+    seeHtml = function(){1
         alert(editor.getHTML());
     }
     seeMd = function(){
@@ -34,7 +48,7 @@
     submitFunc = function(){
         let frm = document.testform
         alert(editor.getHTML());
-        console.log(editor.getHTML() + "콘솔로그")
+        console.log(editor.getHTML().toString() + "콘솔로그")
         frm.text.value = editor.getHTML();
         if(typeof frm === "undefined") return false;
 

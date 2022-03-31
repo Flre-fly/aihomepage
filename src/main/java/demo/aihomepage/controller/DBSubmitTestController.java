@@ -17,7 +17,7 @@ public class DBSubmitTestController {
 
     @PostMapping("/submit")
     public myTextVO sumbitDB(myTextVO text){
-        System.out.println("---------");
+        System.out.println(text);
         System.out.println(text.getText());
         //return "redirect:/";
         return text;
