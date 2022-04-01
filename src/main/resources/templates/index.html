@@ -29,16 +29,16 @@
         const formData = new FormData();
         formData.append('file', blob);
 
-        fetch('url', {
+        fetch("http://localhost:8080/submit", {
             method: 'POST',
             headers: {'Content-Type': 'multipart/form-data'},
             body: formData,
         });
         //fetch해서 url받아서 callback으로 url넘겨서 호출
-        callback('url');
+        callback("http://localhost:8080/submit");
     });
 
-    seeHtml = function(){1
+    seeHtml = function(){
         alert(editor.getHTML());
     }
     seeMd = function(){
