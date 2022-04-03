@@ -1,6 +1,7 @@
 package demo.aihomepage.controller;
 
 import demo.aihomepage.VO.myTextVO;
+import demo.aihomepage.entity.myText;
 import demo.aihomepage.repository.DBSubmitTestRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +19,12 @@ public class DBSubmitTestController {
     private DBSubmitTestRepository repository;
 
     @PostMapping("/submit")
-    public myTextVO sumbitDB(@ModelAttribute myTextVO text){
-        System.out.println(text);
-        System.out.println(text.getText());
-        //return "redirect:/";
-        return text;
+    public String sumbitDB(@ModelAttribute myTextVO text){
+        myText mytext = new myText();
+        mytext.setText(text.getText());
+        repository.save(mytext);
+
+        return "redirect:/";
     }
 
 

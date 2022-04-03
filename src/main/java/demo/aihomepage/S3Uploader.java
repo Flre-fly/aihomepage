@@ -21,8 +21,7 @@ public class S3Uploader {
     private final AmazonS3Client amazonS3Client;
 
     @Value("${cloud.aws.s3.bucket}")
-    //이부분 다시보기;;
-    private String bucket = "aihomepagetest";
+    private String bucket;
 
     public String upload(MultipartFile multipartFile, String dirName) throws IOException {
         File uploadFile = convert(multipartFile)
@@ -62,4 +61,5 @@ public class S3Uploader {
 
         return Optional.empty();
     }
+
 }
